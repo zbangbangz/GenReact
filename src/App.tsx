@@ -35,7 +35,7 @@ function App() {
   ]
 
   return (
-    <div className="font-scb">
+    <div className="font-scb" id="root">
       {/* SCB Purple Header Card */}
       <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
         {/* Subtle background elements */}
@@ -47,7 +47,7 @@ function App() {
         {/* Header */}
         <div className="flex justify-between items-center mb-10 relative z-10">
           <h1 className="text-white text-3xl font-bold tracking-tight">PayWise</h1>
-          <div className="w-12 h-12 bg-scb-gold bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
+          <div className="w-12 h-12 bg-scb-gold bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm logo">
             <div className="w-8 h-8 bg-scb-gold rounded-full"></div>
           </div>
         </div>
@@ -78,7 +78,7 @@ function App() {
       {/* Action Cards - SCB Theme */}
       <div className="px-6 -mt-6 relative z-10">
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:shadow-xl transition-shadow">
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:shadow-xl transition-shadow card">
             <div className="w-14 h-14 bg-scb-purple bg-opacity-10 rounded-2xl flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-scb-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -88,7 +88,7 @@ function App() {
             <p className="text-scb-gray-600 text-sm">Transfer to friends</p>
           </div>
           
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:shadow-xl transition-shadow">
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:shadow-xl transition-shadow card">
             <div className="w-14 h-14 bg-scb-gold bg-opacity-20 rounded-2xl flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-scb-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

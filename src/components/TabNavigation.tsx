@@ -4,6 +4,7 @@ import App from '../App'
 import Home from './Home'
 import HelloHuman from './HelloHuman'
 import Demo from './Demo'
+import '../App.css'
 
 function TabNavigation() {
   const location = useLocation()
@@ -28,7 +29,7 @@ function TabNavigation() {
   }
 
   return (
-    <div className="min-h-screen bg-scb-gray-50 font-scb">
+    <div className="min-h-screen bg-scb-gray-50 font-scb" id="root">
       {/* Tab Navigation - SCB Theme */}
       <div className="bg-white border-b border-scb-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-md mx-auto">

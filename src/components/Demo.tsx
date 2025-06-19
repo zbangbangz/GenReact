@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import '../App.css'
 
 interface Transaction {
   id: string
@@ -714,7 +715,7 @@ function Demo() {
 
   // Home View - Main PayWise interface with SCB Bank theme
   return (
-    <div className="font-scb">
+    <div className="font-scb" id="root">
       {/* SCB Purple Header Card - Matching Main tab exactly */}
       <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
         {/* Subtle background elements - matching Main tab */}
@@ -726,7 +727,7 @@ function Demo() {
         {/* Header - matching Main tab */}
         <div className="flex justify-between items-center mb-10 relative z-10">
           <h1 className="text-white text-3xl font-bold tracking-tight">PayWise</h1>
-          <div className="w-12 h-12 bg-scb-gold bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
+          <div className="w-12 h-12 bg-scb-gold bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm logo">
             <div className="w-8 h-8 bg-scb-gold rounded-full"></div>
           </div>
         </div>
@@ -760,7 +761,7 @@ function Demo() {
           {/* Send Money Card */}
           <button
             onClick={() => setCurrentView('transfer')}
-            className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors card"
           >
             <div className="w-14 h-14 bg-scb-purple bg-opacity-10 rounded-2xl flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-scb-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -774,7 +775,7 @@ function Demo() {
           {/* History Card */}
           <button
             onClick={() => setCurrentView('history')}
-            className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors card"
           >
             <div className="w-14 h-14 bg-scb-gold bg-opacity-20 rounded-2xl flex items-center justify-center mb-4">
               <svg className="w-7 h-7 text-scb-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
