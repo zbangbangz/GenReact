@@ -712,39 +712,49 @@ function Demo() {
     )
   }
 
-  // Home View - Main PayWise interface
+  // Home View - Main PayWise interface with matching main page styling
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Purple Header Card */}
+    <div>
+      {/* Purple Header Card - Matching the main page exactly */}
       <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
-        {/* Header */}
+        {/* Subtle background elements - matching main page */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-16 right-8 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute bottom-12 left-6 w-24 h-24 bg-white rounded-full blur-3xl"></div>
+        </div>
+        
+        {/* Header - matching main page */}
         <div className="flex justify-between items-center mb-10 relative z-10">
-          <h1 className="text-white text-4xl font-bold tracking-tight">PayWise</h1>
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+          <h1 className="text-white text-3xl font-bold tracking-tight">PayWise</h1>
+          <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
+            <div className="w-8 h-8 bg-white rounded-full"></div>
           </div>
         </div>
 
-        {/* Balance Section */}
+        {/* Balance Section - matching main page */}
         <div className="relative z-10">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-3">
             <span className="text-white text-lg font-medium opacity-90">Available Balance</span>
             <button 
               onClick={() => setShowBalance(!showBalance)}
               className="text-white hover:text-purple-200 transition-colors p-2 opacity-80"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                {showBalance ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 616 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
+                )}
               </svg>
             </button>
           </div>
-          <div className="text-white text-5xl font-bold tracking-tight">
+          <div className="text-white text-[48px] font-bold tracking-tight">
             {showBalance ? `฿${currentBalance.toLocaleString('en-US', { minimumFractionDigits: 2 })}` : "••••••••"}
           </div>
         </div>
       </div>
 
-      {/* Action Cards */}
+      {/* Action Cards - matching main page exactly */}
       <div className="px-6 -mt-6 relative z-10">
         <div className="grid grid-cols-2 gap-4">
           {/* Send Money Card */}
@@ -752,13 +762,13 @@ function Demo() {
             onClick={() => setCurrentView('transfer')}
             className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
           >
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg className="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </div>
-            <h3 className="text-gray-900 text-xl font-bold mb-2">Send Money</h3>
-            <p className="text-gray-500 text-sm">Transfer to friends</p>
+            <h3 className="text-gray-900 text-xl font-bold mb-1">Send Money</h3>
+            <p className="text-gray-600 text-sm">Transfer to friends</p>
           </button>
           
           {/* History Card */}
@@ -766,18 +776,18 @@ function Demo() {
             onClick={() => setCurrentView('history')}
             className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
           >
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
+              <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-gray-900 text-xl font-bold mb-2">History</h3>
-            <p className="text-gray-500 text-sm">View transactions</p>
+            <h3 className="text-gray-900 text-xl font-bold mb-1">History</h3>
+            <p className="text-gray-600 text-sm">View transactions</p>
           </button>
         </div>
       </div>
 
-      {/* Recent Activity - US2.1: Recent transactions display */}
+      {/* Recent Activity - matching main page exactly */}
       <div className="px-6 mt-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-gray-900 text-2xl font-bold">Recent Activity</h2>
@@ -797,12 +807,20 @@ function Demo() {
                 setSelectedTransaction(transaction)
                 setCurrentView('details')
               }}
-              className="w-full bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
+              className="w-full bg-white rounded-3xl p-5 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
             >
               <div className="flex items-center">
-                <div className={`w-14 h-14 ${transaction.type === 'outgoing' ? 'bg-red-100' : 'bg-green-100'} rounded-full flex items-center justify-center mr-4`}>
-                  <svg className={`w-6 h-6 ${transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={transaction.type === 'outgoing' ? "M7 11l5-5m0 0l5 5m-5-5v12" : "M17 13l-5 5m0 0l-5-5m5 5V6"} />
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mr-4 ${
+                  transaction.type === 'outgoing' ? 'bg-red-100' : 'bg-green-100'
+                }`}>
+                  <svg className={`w-6 h-6 ${
+                    transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'
+                  }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {transaction.type === 'outgoing' ? (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                    ) : (
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 13l-5 5m0 0l-5-5m5 5V6" />
+                    )}
                   </svg>
                 </div>
                 
@@ -814,8 +832,13 @@ function Demo() {
                       {transaction.memo && <p className="text-gray-600 text-sm mt-1">"{transaction.memo}"</p>}
                     </div>
                     <div className="text-right ml-4">
-                      <p className={`font-bold text-lg ${transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'}`}>
-                        {transaction.type === 'outgoing' ? '-' : '+'}฿{transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                      <p className={`font-bold text-lg ${
+                        transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'
+                      }`}>
+                        {transaction.type === 'outgoing' ? '-' : '+'}฿{transaction.amount.toLocaleString('en-US', {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2
+                        })}
                       </p>
                       <p className="text-gray-500 text-sm">{transaction.date}</p>
                     </div>
