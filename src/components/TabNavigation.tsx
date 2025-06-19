@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
 interface TabNavigationProps {
   children: React.ReactNode
@@ -11,10 +11,6 @@ function TabNavigation({ children }: TabNavigationProps) {
     window.open('https://paywisedemo1.vercel.app/', '_blank')
   }
 
-  const handleMainPage = () => {
-    window.location.href = '/'
-  }
-
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Tab Navigation */}
@@ -22,9 +18,9 @@ function TabNavigation({ children }: TabNavigationProps) {
         <div className="max-w-md mx-auto">
           <div className="flex">
             {/* Main Tab */}
-            <button
-              onClick={handleMainPage}
-              className={`flex-1 py-4 px-6 text-center font-semibold transition-colors duration-200 border-b-2 ${
+            <Link
+              to="/"
+              className={`flex-1 py-4 px-4 text-center font-semibold transition-colors duration-200 border-b-2 ${
                 location.pathname === '/' || location.pathname === '/home'
                   ? 'border-purple-600 text-purple-600 bg-purple-50'
                   : 'border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50'
@@ -38,12 +34,29 @@ function TabNavigation({ children }: TabNavigationProps) {
                 </svg>
                 <span>Main</span>
               </div>
-            </button>
+            </Link>
+
+            {/* Hello Human Tab */}
+            <Link
+              to="/hello-human"
+              className={`flex-1 py-4 px-4 text-center font-semibold transition-colors duration-200 border-b-2 ${
+                location.pathname === '/hello-human'
+                  ? 'border-purple-600 text-purple-600 bg-purple-50'
+                  : 'border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50'
+              }`}
+            >
+              <div className="flex items-center justify-center space-x-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Hello</span>
+              </div>
+            </Link>
 
             {/* External Demo Tab */}
             <button
               onClick={handleExternalLink}
-              className="flex-1 py-4 px-6 text-center font-semibold transition-colors duration-200 border-b-2 border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50"
+              className="flex-1 py-4 px-4 text-center font-semibold transition-colors duration-200 border-b-2 border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50"
             >
               <div className="flex items-center justify-center space-x-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
