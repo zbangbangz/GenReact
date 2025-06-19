@@ -159,9 +159,9 @@ function Demo() {
   // Transfer View - US1.1 & US1.2 Implementation
   if (currentView === 'transfer') {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-scb-gray-50 font-scb">
         {/* Header */}
-        <div className="bg-gradient-to-br from-purple-500 to-purple-700 px-6 py-8">
+        <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark px-6 py-8">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => setCurrentView('home')}
@@ -179,7 +179,7 @@ function Demo() {
         <div className="px-6 py-6 space-y-6">
           {/* PayTag Search - US1.1: PayTag identifier */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">To (PayTag or Name)</label>
+            <label className="block text-scb-gray-700 font-medium mb-2">To (PayTag or Name)</label>
             <input
               type="text"
               placeholder="Enter @paytag or name"
@@ -189,13 +189,13 @@ function Demo() {
                 searchPayTag(e.target.value)
                 setErrors({...errors, paytag: ''})
               }}
-              className={`w-full p-4 rounded-2xl border ${errors.paytag ? 'border-red-500' : 'border-gray-200'} focus:border-purple-500 focus:outline-none`}
+              className={`w-full p-4 rounded-2xl border ${errors.paytag ? 'border-red-500' : 'border-scb-gray-200'} focus:border-scb-purple focus:outline-none`}
             />
             {errors.paytag && <p className="text-red-500 text-sm mt-1">{errors.paytag}</p>}
             
             {/* Search Results */}
             {searchResults.length > 0 && !transferData.recipient && (
-              <div className="mt-2 bg-white rounded-2xl shadow-lg border border-gray-100">
+              <div className="mt-2 bg-white rounded-2xl shadow-lg border border-scb-gray-100">
                 {searchResults.map((user) => (
                   <button
                     key={user.paytag}
@@ -203,10 +203,10 @@ function Demo() {
                       setTransferData({...transferData, recipient: user, paytag: user.paytag})
                       setSearchResults([])
                     }}
-                    className="w-full p-4 text-left hover:bg-gray-50 first:rounded-t-2xl last:rounded-b-2xl border-b border-gray-100 last:border-b-0"
+                    className="w-full p-4 text-left hover:bg-scb-gray-50 first:rounded-t-2xl last:rounded-b-2xl border-b border-scb-gray-100 last:border-b-0"
                   >
-                    <div className="font-medium text-gray-900">{user.name}</div>
-                    <div className="text-sm text-purple-600">{user.paytag}</div>
+                    <div className="font-medium text-scb-gray-900">{user.name}</div>
+                    <div className="text-sm text-scb-purple">{user.paytag}</div>
                   </button>
                 ))}
               </div>
@@ -215,15 +215,15 @@ function Demo() {
 
           {/* Selected Recipient - Clear display as per PRD */}
           {transferData.recipient && (
-            <div className="bg-purple-50 p-4 rounded-2xl border border-purple-200">
+            <div className="bg-scb-purple bg-opacity-10 p-4 rounded-2xl border border-scb-purple border-opacity-30">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-medium text-gray-900">{transferData.recipient.name}</div>
-                  <div className="text-sm text-purple-600">{transferData.recipient.paytag}</div>
+                  <div className="font-medium text-scb-gray-900">{transferData.recipient.name}</div>
+                  <div className="text-sm text-scb-purple">{transferData.recipient.paytag}</div>
                 </div>
                 <button
                   onClick={() => setTransferData({...transferData, recipient: null, paytag: ''})}
-                  className="text-purple-600 p-1"
+                  className="text-scb-purple p-1"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -235,7 +235,7 @@ function Demo() {
 
           {/* Amount - US1.2: Amount entry */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Amount (฿)</label>
+            <label className="block text-scb-gray-700 font-medium mb-2">Amount (฿)</label>
             <input
               type="number"
               placeholder="0.00"
@@ -244,23 +244,23 @@ function Demo() {
                 setTransferData({...transferData, amount: e.target.value})
                 setErrors({...errors, amount: ''})
               }}
-              className={`w-full p-4 rounded-2xl border ${errors.amount ? 'border-red-500' : 'border-gray-200'} focus:border-purple-500 focus:outline-none text-2xl font-bold`}
+              className={`w-full p-4 rounded-2xl border ${errors.amount ? 'border-red-500' : 'border-scb-gray-200'} focus:border-scb-purple focus:outline-none text-2xl font-bold`}
             />
             {errors.amount && <p className="text-red-500 text-sm mt-1">{errors.amount}</p>}
           </div>
 
           {/* Memo - US1.2: Optional memo */}
           <div>
-            <label className="block text-gray-700 font-medium mb-2">Memo (Optional)</label>
+            <label className="block text-scb-gray-700 font-medium mb-2">Memo (Optional)</label>
             <input
               type="text"
               placeholder="What's this for?"
               value={transferData.memo}
               onChange={(e) => setTransferData({...transferData, memo: e.target.value})}
-              className="w-full p-4 rounded-2xl border border-gray-200 focus:border-purple-500 focus:outline-none"
+              className="w-full p-4 rounded-2xl border border-scb-gray-200 focus:border-scb-purple focus:outline-none"
               maxLength={50}
             />
-            <p className="text-xs text-gray-500 mt-1">{transferData.memo.length}/50 characters</p>
+            <p className="text-xs text-scb-gray-500 mt-1">{transferData.memo.length}/50 characters</p>
           </div>
 
           {/* Continue Button */}
@@ -270,7 +270,7 @@ function Demo() {
                 setCurrentView('confirmation')
               }
             }}
-            className="w-full bg-purple-600 text-white p-4 rounded-2xl font-medium hover:bg-purple-700 transition-colors"
+            className="w-full bg-scb-purple text-white p-4 rounded-2xl font-medium hover:bg-scb-purple-dark transition-colors"
           >
             Continue
           </button>
@@ -282,9 +282,9 @@ function Demo() {
   // Confirmation View - US1.3: Transaction Review
   if (currentView === 'confirmation') {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-scb-gray-50 font-scb">
         {/* Header */}
-        <div className="bg-gradient-to-br from-purple-500 to-purple-700 px-6 py-8">
+        <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark px-6 py-8">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => setCurrentView('transfer')}
@@ -301,44 +301,44 @@ function Demo() {
 
         <div className="px-6 py-6">
           {/* Confirmation Card - PRD: Clear display of recipient name, PayTag, amount */}
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 mb-6">
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 mb-6">
             <div className="text-center mb-6">
-              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-20 h-20 bg-scb-purple bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-10 h-10 text-scb-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">฿{parseFloat(transferData.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</h2>
-              <p className="text-gray-600">Please review the details below</p>
+              <h2 className="text-3xl font-bold text-scb-gray-900 mb-2">฿{parseFloat(transferData.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</h2>
+              <p className="text-scb-gray-600">Please review the details below</p>
             </div>
 
             <div className="space-y-4">
               {/* PRD: Clear display of recipient's full name and PayTag */}
               <div className="flex justify-between">
-                <span className="text-gray-600">To</span>
+                <span className="text-scb-gray-600">To</span>
                 <div className="text-right">
-                  <div className="font-medium text-gray-900">{transferData.recipient?.name}</div>
-                  <div className="text-sm text-purple-600">{transferData.recipient?.paytag}</div>
+                  <div className="font-medium text-scb-gray-900">{transferData.recipient?.name}</div>
+                  <div className="text-sm text-scb-purple">{transferData.recipient?.paytag}</div>
                 </div>
               </div>
               
               {transferData.memo && (
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Memo</span>
-                  <span className="font-medium text-gray-900">"{transferData.memo}"</span>
+                  <span className="text-scb-gray-600">Memo</span>
+                  <span className="font-medium text-scb-gray-900">"{transferData.memo}"</span>
                 </div>
               )}
 
               <div className="flex justify-between">
-                <span className="text-gray-600">Transfer Fee</span>
-                <span className="font-medium text-gray-900">฿0.00</span>
+                <span className="text-scb-gray-600">Transfer Fee</span>
+                <span className="font-medium text-scb-gray-900">฿0.00</span>
               </div>
 
-              <hr className="border-gray-200" />
+              <hr className="border-scb-gray-200" />
 
               <div className="flex justify-between">
-                <span className="text-gray-600">Total Amount</span>
-                <span className="text-xl font-bold text-gray-900">฿{parseFloat(transferData.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                <span className="text-scb-gray-600">Total Amount</span>
+                <span className="text-xl font-bold text-scb-gray-900">฿{parseFloat(transferData.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
               </div>
             </div>
           </div>
@@ -346,7 +346,7 @@ function Demo() {
           {/* Confirm Button - Leads to PIN entry */}
           <button
             onClick={() => setCurrentView('pin')}
-            className="w-full bg-purple-600 text-white p-4 rounded-2xl font-medium hover:bg-purple-700 transition-colors"
+            className="w-full bg-scb-purple text-white p-4 rounded-2xl font-medium hover:bg-scb-purple-dark transition-colors"
           >
             Confirm & Enter PIN
           </button>
@@ -358,9 +358,9 @@ function Demo() {
   // PIN View - US1.4: 6-digit PIN authorization
   if (currentView === 'pin') {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-scb-gray-50 font-scb">
         {/* Header */}
-        <div className="bg-gradient-to-br from-purple-500 to-purple-700 px-6 py-8">
+        <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark px-6 py-8">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => setCurrentView('confirmation')}
@@ -389,8 +389,8 @@ function Demo() {
             </div>
           ) : (
             <>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Enter your 6-digit PIN</h2>
-              <p className="text-gray-600 mb-8">to authorize this transfer securely</p>
+              <h2 className="text-2xl font-bold text-scb-gray-900 mb-2">Enter your 6-digit PIN</h2>
+              <p className="text-scb-gray-600 mb-8">to authorize this transfer securely</p>
               
               {pinAttempts > 0 && (
                 <div className="text-red-600 mb-4">
@@ -404,7 +404,7 @@ function Demo() {
                   <div
                     key={i}
                     className={`w-4 h-4 rounded-full border-2 ${
-                      i < pin.length ? 'bg-purple-600 border-purple-600' : 'border-gray-300'
+                      i < pin.length ? 'bg-scb-purple border-scb-purple' : 'border-scb-gray-300'
                     }`}
                   />
                 ))}
@@ -426,7 +426,7 @@ function Demo() {
                         }
                       }
                     }}
-                    className="w-16 h-16 bg-white rounded-full text-xl font-bold text-gray-900 hover:bg-gray-50 shadow-lg border border-gray-100"
+                    className="w-16 h-16 bg-white rounded-full text-xl font-bold text-scb-gray-900 hover:bg-scb-gray-50 shadow-lg border border-scb-gray-100"
                   >
                     {num}
                   </button>
@@ -444,21 +444,21 @@ function Demo() {
                       }
                     }
                   }}
-                  className="w-16 h-16 bg-white rounded-full text-xl font-bold text-gray-900 hover:bg-gray-50 shadow-lg border border-gray-100"
+                  className="w-16 h-16 bg-white rounded-full text-xl font-bold text-scb-gray-900 hover:bg-scb-gray-50 shadow-lg border border-scb-gray-100"
                 >
                   0
                 </button>
                 <button
                   onClick={() => setPin(pin.slice(0, -1))}
-                  className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:bg-gray-50 shadow-lg border border-gray-100"
+                  className="w-16 h-16 bg-white rounded-full flex items-center justify-center hover:bg-scb-gray-50 shadow-lg border border-scb-gray-100"
                 >
-                  <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-scb-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
                   </svg>
                 </button>
               </div>
               
-              <p className="text-xs text-gray-500 mt-6">Demo PIN: 123456</p>
+              <p className="text-xs text-scb-gray-500 mt-6">Demo PIN: 123456</p>
             </>
           )}
         </div>
@@ -474,9 +474,9 @@ function Demo() {
     const timeStr = currentDate.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
 
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-scb-gray-50 font-scb">
         {/* Header */}
-        <div className="bg-gradient-to-br from-green-500 to-green-700 px-6 py-8">
+        <div className="bg-gradient-to-br from-scb-gold-dark to-scb-gold px-6 py-8">
           <div className="flex items-center justify-between">
             <div></div>
             <h1 className="text-white text-xl font-bold">Transfer Successful</h1>
@@ -494,73 +494,73 @@ function Demo() {
         <div className="px-6 py-6">
           {/* Success Icon */}
           <div className="text-center mb-6">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-20 h-20 bg-scb-gold bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-10 h-10 text-scb-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Transfer Completed</h2>
-            <p className="text-gray-600">Your money has been sent successfully</p>
+            <h2 className="text-2xl font-bold text-scb-gray-900 mb-2">Transfer Completed</h2>
+            <p className="text-scb-gray-600">Your money has been sent successfully</p>
           </div>
 
           {/* PRD: Digital Receipt (E-Slip) with all essential details */}
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 mb-6">
-            <div className="text-center border-b border-gray-200 pb-4 mb-4">
-              <h3 className="text-lg font-bold text-gray-900">Digital Receipt (E-Slip)</h3>
-              <p className="text-sm text-gray-500 font-mono">{transactionId}</p>
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 mb-6">
+            <div className="text-center border-b border-scb-gray-200 pb-4 mb-4">
+              <h3 className="text-lg font-bold text-scb-gray-900">Digital Receipt (E-Slip)</h3>
+              <p className="text-sm text-scb-gray-500 font-mono">{transactionId}</p>
             </div>
 
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Date & Time</span>
-                <span className="font-medium text-gray-900">{dateStr} {timeStr}</span>
+                <span className="text-scb-gray-600">Date & Time</span>
+                <span className="font-medium text-scb-gray-900">{dateStr} {timeStr}</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-gray-600">From</span>
-                <span className="font-medium text-gray-900">You</span>
+                <span className="text-scb-gray-600">From</span>
+                <span className="font-medium text-scb-gray-900">You</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-gray-600">To</span>
+                <span className="text-scb-gray-600">To</span>
                 <div className="text-right">
-                  <div className="font-medium text-gray-900">{transferData.recipient?.name}</div>
-                  <div className="text-purple-600">{transferData.recipient?.paytag}</div>
+                  <div className="font-medium text-scb-gray-900">{transferData.recipient?.name}</div>
+                  <div className="text-scb-purple">{transferData.recipient?.paytag}</div>
                 </div>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-gray-600">Amount</span>
-                <span className="font-bold text-gray-900">฿{parseFloat(transferData.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                <span className="text-scb-gray-600">Amount</span>
+                <span className="font-bold text-scb-gray-900">฿{parseFloat(transferData.amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-gray-600">Transfer Fee</span>
-                <span className="font-medium text-gray-900">฿0.00</span>
+                <span className="text-scb-gray-600">Transfer Fee</span>
+                <span className="font-medium text-scb-gray-900">฿0.00</span>
               </div>
               
               {transferData.memo && (
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Memo</span>
-                  <span className="font-medium text-gray-900">"{transferData.memo}"</span>
+                  <span className="text-scb-gray-600">Memo</span>
+                  <span className="font-medium text-scb-gray-900">"{transferData.memo}"</span>
                 </div>
               )}
               
               <div className="flex justify-between">
-                <span className="text-gray-600">Status</span>
-                <span className="font-medium text-green-600">Completed</span>
+                <span className="text-scb-gray-600">Status</span>
+                <span className="font-medium text-scb-gold-dark">Completed</span>
               </div>
             </div>
           </div>
 
           {/* Action Buttons - PRD: Save as image capability */}
           <div className="space-y-3">
-            <button className="w-full bg-purple-600 text-white p-4 rounded-2xl font-medium hover:bg-purple-700 transition-colors">
+            <button className="w-full bg-scb-purple text-white p-4 rounded-2xl font-medium hover:bg-scb-purple-dark transition-colors">
               Save Receipt as Image
             </button>
             <button 
               onClick={resetTransfer}
-              className="w-full bg-gray-100 text-gray-700 p-4 rounded-2xl font-medium hover:bg-gray-200 transition-colors"
+              className="w-full bg-scb-gray-100 text-scb-gray-700 p-4 rounded-2xl font-medium hover:bg-scb-gray-200 transition-colors"
             >
               Done
             </button>
@@ -573,9 +573,9 @@ function Demo() {
   // History View - US2.1: Transaction History Feed (sorted in reverse chronological order)
   if (currentView === 'history') {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-scb-gray-50 font-scb">
         {/* Header */}
-        <div className="bg-gradient-to-br from-purple-500 to-purple-700 px-6 py-8">
+        <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark px-6 py-8">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => setCurrentView('home')}
@@ -600,12 +600,12 @@ function Demo() {
                   setSelectedTransaction(transaction)
                   setCurrentView('details')
                 }}
-                className="w-full bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
+                className="w-full bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors"
               >
                 <div className="flex items-center">
                   {/* PRD: Visually distinct outgoing/incoming transfers */}
-                  <div className={`w-14 h-14 ${transaction.type === 'outgoing' ? 'bg-red-100' : 'bg-green-100'} rounded-full flex items-center justify-center mr-4`}>
-                    <svg className={`w-6 h-6 ${transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className={`w-14 h-14 ${transaction.type === 'outgoing' ? 'bg-red-100' : 'bg-scb-gold bg-opacity-20'} rounded-full flex items-center justify-center mr-4`}>
+                    <svg className={`w-6 h-6 ${transaction.type === 'outgoing' ? 'text-red-600' : 'text-scb-gold-dark'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={transaction.type === 'outgoing' ? "M7 11l5-5m0 0l5 5m-5-5v12" : "M17 13l-5 5m0 0l-5-5m5 5V6"} />
                     </svg>
                   </div>
@@ -613,15 +613,15 @@ function Demo() {
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <div className="flex-1 text-left">
-                        <h3 className="text-gray-900 font-bold text-lg">{transaction.recipient}</h3>
-                        <p className="text-gray-500 text-sm">{transaction.paytag}</p>
-                        {transaction.memo && <p className="text-gray-600 text-sm mt-1">"{transaction.memo}"</p>}
+                        <h3 className="text-scb-gray-900 font-bold text-lg">{transaction.recipient}</h3>
+                        <p className="text-scb-gray-500 text-sm">{transaction.paytag}</p>
+                        {transaction.memo && <p className="text-scb-gray-600 text-sm mt-1">"{transaction.memo}"</p>}
                       </div>
                       <div className="text-right ml-4">
-                        <p className={`font-bold text-lg ${transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'}`}>
+                        <p className={`font-bold text-lg ${transaction.type === 'outgoing' ? 'text-red-600' : 'text-scb-gold-dark'}`}>
                           {transaction.type === 'outgoing' ? '-' : '+'}฿{transaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                         </p>
-                        <p className="text-gray-500 text-sm">{transaction.date}</p>
+                        <p className="text-scb-gray-500 text-sm">{transaction.date}</p>
                       </div>
                     </div>
                   </div>
@@ -637,9 +637,9 @@ function Demo() {
   // Transaction Details View - US2.2: Detailed transaction information
   if (currentView === 'details' && selectedTransaction) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-scb-gray-50 font-scb">
         {/* Header */}
-        <div className="bg-gradient-to-br from-purple-500 to-purple-700 px-6 py-8">
+        <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark px-6 py-8">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => setCurrentView('history')}
@@ -657,54 +657,54 @@ function Demo() {
         <div className="px-6 py-6">
           {/* Amount Section */}
           <div className="text-center mb-6">
-            <div className={`w-20 h-20 ${selectedTransaction.type === 'outgoing' ? 'bg-red-100' : 'bg-green-100'} rounded-full flex items-center justify-center mx-auto mb-4`}>
-              <svg className={`w-10 h-10 ${selectedTransaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className={`w-20 h-20 ${selectedTransaction.type === 'outgoing' ? 'bg-red-100' : 'bg-scb-gold bg-opacity-20'} rounded-full flex items-center justify-center mx-auto mb-4`}>
+              <svg className={`w-10 h-10 ${selectedTransaction.type === 'outgoing' ? 'text-red-600' : 'text-scb-gold-dark'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={selectedTransaction.type === 'outgoing' ? "M7 11l5-5m0 0l5 5m-5-5v12" : "M17 13l-5 5m0 0l-5-5m5 5V6"} />
               </svg>
             </div>
-            <h2 className={`text-3xl font-bold mb-2 ${selectedTransaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'}`}>
+            <h2 className={`text-3xl font-bold mb-2 ${selectedTransaction.type === 'outgoing' ? 'text-red-600' : 'text-scb-gold-dark'}`}>
               {selectedTransaction.type === 'outgoing' ? '-' : '+'}฿{selectedTransaction.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}
             </h2>
-            <p className="text-gray-600 capitalize">{selectedTransaction.type} Transfer</p>
+            <p className="text-scb-gray-600 capitalize">{selectedTransaction.type} Transfer</p>
           </div>
 
           {/* PRD: All transaction details as specified in US2.2 */}
-          <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 mb-6">
+          <div className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 mb-6">
             <div className="space-y-4">
               <div className="flex justify-between">
-                <span className="text-gray-600">Transaction ID</span>
-                <span className="font-mono text-sm font-medium text-gray-900">{selectedTransaction.id}</span>
+                <span className="text-scb-gray-600">Transaction ID</span>
+                <span className="font-mono text-sm font-medium text-scb-gray-900">{selectedTransaction.id}</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-gray-600">Date & Time</span>
-                <span className="font-medium text-gray-900">{selectedTransaction.date} {selectedTransaction.time}</span>
+                <span className="text-scb-gray-600">Date & Time</span>
+                <span className="font-medium text-scb-gray-900">{selectedTransaction.date} {selectedTransaction.time}</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-gray-600">{selectedTransaction.type === 'outgoing' ? 'To' : 'From'}</span>
+                <span className="text-scb-gray-600">{selectedTransaction.type === 'outgoing' ? 'To' : 'From'}</span>
                 <div className="text-right">
-                  <div className="font-medium text-gray-900">{selectedTransaction.recipient}</div>
-                  <div className="text-sm text-purple-600">{selectedTransaction.paytag}</div>
+                  <div className="font-medium text-scb-gray-900">{selectedTransaction.recipient}</div>
+                  <div className="text-sm text-scb-purple">{selectedTransaction.paytag}</div>
                 </div>
               </div>
               
               {selectedTransaction.memo && (
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Memo</span>
-                  <span className="font-medium text-gray-900">"{selectedTransaction.memo}"</span>
+                  <span className="text-scb-gray-600">Memo</span>
+                  <span className="font-medium text-scb-gray-900">"{selectedTransaction.memo}"</span>
                 </div>
               )}
               
               <div className="flex justify-between">
-                <span className="text-gray-600">Status</span>
-                <span className="font-medium text-green-600 capitalize">{selectedTransaction.status}</span>
+                <span className="text-scb-gray-600">Status</span>
+                <span className="font-medium text-scb-gold-dark capitalize">{selectedTransaction.status}</span>
               </div>
             </div>
           </div>
 
           {/* Action Button */}
-          <button className="w-full bg-purple-600 text-white p-4 rounded-2xl font-medium hover:bg-purple-700 transition-colors">
+          <button className="w-full bg-scb-purple text-white p-4 rounded-2xl font-medium hover:bg-scb-purple-dark transition-colors">
             Share Receipt
           </button>
         </div>
@@ -712,22 +712,22 @@ function Demo() {
     )
   }
 
-  // Home View - Main PayWise interface with exact same styling as Main tab
+  // Home View - Main PayWise interface with SCB Bank theme
   return (
-    <div>
-      {/* Purple Header Card - Matching Main tab exactly */}
-      <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
+    <div className="font-scb">
+      {/* SCB Purple Header Card - Matching Main tab exactly */}
+      <div className="bg-gradient-to-br from-scb-purple to-scb-purple-dark rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
         {/* Subtle background elements - matching Main tab */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-16 right-8 w-32 h-32 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-12 left-6 w-24 h-24 bg-white rounded-full blur-3xl"></div>
+          <div className="absolute top-16 right-8 w-32 h-32 bg-scb-gold rounded-full blur-3xl"></div>
+          <div className="absolute bottom-12 left-6 w-24 h-24 bg-scb-gold rounded-full blur-3xl"></div>
         </div>
         
         {/* Header - matching Main tab */}
         <div className="flex justify-between items-center mb-10 relative z-10">
           <h1 className="text-white text-3xl font-bold tracking-tight">PayWise</h1>
-          <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <div className="w-8 h-8 bg-white rounded-full"></div>
+          <div className="w-12 h-12 bg-scb-gold bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
+            <div className="w-8 h-8 bg-scb-gold rounded-full"></div>
           </div>
         </div>
 
@@ -737,7 +737,7 @@ function Demo() {
             <span className="text-white text-lg font-medium opacity-90">Available Balance</span>
             <button 
               onClick={() => setShowBalance(!showBalance)}
-              className="text-white hover:text-purple-200 transition-colors p-2 opacity-80"
+              className="text-white hover:text-scb-gold-light transition-colors p-2 opacity-80"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {showBalance ? (
@@ -754,35 +754,35 @@ function Demo() {
         </div>
       </div>
 
-      {/* Action Cards - Purple Theme matching Main tab exactly */}
+      {/* Action Cards - SCB Theme matching Main tab exactly */}
       <div className="px-6 -mt-6 relative z-10">
         <div className="grid grid-cols-2 gap-4">
           {/* Send Money Card */}
           <button
             onClick={() => setCurrentView('transfer')}
-            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors"
           >
-            <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-4">
-              <svg className="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-14 h-14 bg-scb-purple bg-opacity-10 rounded-2xl flex items-center justify-center mb-4">
+              <svg className="w-7 h-7 text-scb-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </div>
-            <h3 className="text-gray-900 text-xl font-bold mb-1">Send Money</h3>
-            <p className="text-gray-600 text-sm">Transfer to friends</p>
+            <h3 className="text-scb-gray-900 text-xl font-bold mb-1">Send Money</h3>
+            <p className="text-scb-gray-600 text-sm">Transfer to friends</p>
           </button>
           
           {/* History Card */}
           <button
             onClick={() => setCurrentView('history')}
-            className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
+            className="bg-white rounded-3xl p-6 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors"
           >
-            <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
-              <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-14 h-14 bg-scb-gold bg-opacity-20 rounded-2xl flex items-center justify-center mb-4">
+              <svg className="w-7 h-7 text-scb-gold-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-gray-900 text-xl font-bold mb-1">History</h3>
-            <p className="text-gray-600 text-sm">View transactions</p>
+            <h3 className="text-scb-gray-900 text-xl font-bold mb-1">History</h3>
+            <p className="text-scb-gray-600 text-sm">View transactions</p>
           </button>
         </div>
       </div>
@@ -790,10 +790,10 @@ function Demo() {
       {/* Recent Activity - matching Main tab exactly */}
       <div className="px-6 mt-8">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-gray-900 text-2xl font-bold">Recent Activity</h2>
+          <h2 className="text-scb-gray-900 text-2xl font-bold">Recent Activity</h2>
           <button 
             onClick={() => setCurrentView('history')}
-            className="text-purple-600 font-semibold hover:text-purple-700 transition-colors"
+            className="text-scb-purple font-semibold hover:text-scb-purple-light transition-colors"
           >
             View All
           </button>
@@ -807,14 +807,14 @@ function Demo() {
                 setSelectedTransaction(transaction)
                 setCurrentView('details')
               }}
-              className="w-full bg-white rounded-3xl p-5 shadow-lg border border-gray-100 hover:bg-gray-50 transition-colors"
+              className="w-full bg-white rounded-3xl p-5 shadow-lg border border-scb-gray-100 hover:bg-scb-gray-50 transition-colors"
             >
               <div className="flex items-center">
                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mr-4 ${
-                  transaction.type === 'outgoing' ? 'bg-red-100' : 'bg-green-100'
+                  transaction.type === 'outgoing' ? 'bg-red-50' : 'bg-scb-gold bg-opacity-20'
                 }`}>
                   <svg className={`w-6 h-6 ${
-                    transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'
+                    transaction.type === 'outgoing' ? 'text-red-600' : 'text-scb-gold-dark'
                   }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {transaction.type === 'outgoing' ? (
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
@@ -827,20 +827,20 @@ function Demo() {
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
-                      <h3 className="text-gray-900 font-bold text-lg">{transaction.recipient}</h3>
-                      <p className="text-gray-500 text-sm">{transaction.paytag}</p>
-                      {transaction.memo && <p className="text-gray-600 text-sm mt-1">"{transaction.memo}"</p>}
+                      <h3 className="text-scb-gray-900 font-bold text-lg">{transaction.recipient}</h3>
+                      <p className="text-scb-gray-500 text-sm">{transaction.paytag}</p>
+                      {transaction.memo && <p className="text-scb-gray-600 text-sm mt-1">"{transaction.memo}"</p>}
                     </div>
                     <div className="text-right ml-4">
                       <p className={`font-bold text-lg ${
-                        transaction.type === 'outgoing' ? 'text-red-600' : 'text-green-600'
+                        transaction.type === 'outgoing' ? 'text-red-600' : 'text-scb-gold-dark'
                       }`}>
                         {transaction.type === 'outgoing' ? '-' : '+'}฿{transaction.amount.toLocaleString('en-US', {
                           minimumFractionDigits: 2,
                           maximumFractionDigits: 2
                         })}
                       </p>
-                      <p className="text-gray-500 text-sm">{transaction.date}</p>
+                      <p className="text-scb-gray-500 text-sm">{transaction.date}</p>
                     </div>
                   </div>
                 </div>

@@ -28,17 +28,17 @@ function TabNavigation() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Tab Navigation */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div className="min-h-screen bg-scb-gray-50 font-scb">
+      {/* Tab Navigation - SCB Theme */}
+      <div className="bg-white border-b border-scb-gray-200 sticky top-0 z-50 shadow-sm">
         <div className="max-w-md mx-auto">
           <div className="flex">
             <button
               onClick={() => setActiveTab('main')}
               className={`flex-1 py-4 px-4 text-center font-medium transition-all duration-200 ${
                 activeTab === 'main'
-                  ? 'text-purple-600 border-b-2 border-purple-600 bg-purple-50'
-                  : 'text-gray-600 hover:text-gray-800'
+                  ? 'text-scb-purple border-b-2 border-scb-purple bg-scb-purple bg-opacity-5'
+                  : 'text-scb-gray-600 hover:text-scb-gray-800'
               }`}
             >
               Main
@@ -47,8 +47,8 @@ function TabNavigation() {
               onClick={() => setActiveTab('demo')}
               className={`flex-1 py-4 px-4 text-center font-medium transition-all duration-200 ${
                 activeTab === 'demo'
-                  ? 'text-purple-600 border-b-2 border-purple-600 bg-purple-50'
-                  : 'text-gray-600 hover:text-gray-800'
+                  ? 'text-scb-purple border-b-2 border-scb-purple bg-scb-purple bg-opacity-5'
+                  : 'text-scb-gray-600 hover:text-scb-gray-800'
               }`}
             >
               Demo
@@ -57,8 +57,8 @@ function TabNavigation() {
               onClick={() => setActiveTab('hello')}
               className={`flex-1 py-4 px-4 text-center font-medium transition-all duration-200 ${
                 activeTab === 'hello'
-                  ? 'text-purple-600 border-b-2 border-purple-600 bg-purple-50'
-                  : 'text-gray-600 hover:text-gray-800'
+                  ? 'text-scb-purple border-b-2 border-scb-purple bg-scb-purple bg-opacity-5'
+                  : 'text-scb-gray-600 hover:text-scb-gray-800'
               }`}
             >
               Hello
