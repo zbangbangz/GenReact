@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function Home() {
+function Demo() {
   const [showBalance, setShowBalance] = useState(true)
   
   const transactions = [
@@ -25,10 +25,10 @@ function Home() {
     {
       id: 3,
       name: "Mike Chen",
-      username: "@mikechan",
+      username: "@mikechen",
       amount: -6800.00,
       date: "2024-01-13",
-      description: "Dinner payment",
+      description: "Rent contribution",
       type: "send"
     }
   ]
@@ -45,7 +45,7 @@ function Home() {
         
         {/* Header */}
         <div className="flex justify-between items-center mb-10 relative z-10">
-          <h1 className="text-gray-900 text-3xl font-semibold tracking-tight">PayWise Home</h1>
+          <h1 className="text-gray-900 text-3xl font-semibold tracking-tight">PayWise</h1>
           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-gray-200">
             <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
               <div className="w-3 h-3 bg-gray-400 rounded-full"></div>
@@ -158,4 +158,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Demo

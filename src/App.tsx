@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -101,19 +100,6 @@ function App() {
             <p className="text-gray-600 text-sm">View transactions</p>
           </div>
         </div>
-      </div>
-
-      {/* Navigation Button */}
-      <div className="px-6 mt-6">
-        <Link 
-          to="/home"
-          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 px-6 rounded-2xl shadow-sm transition-colors duration-200 flex items-center justify-center"
-        >
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7l5 5-5 5M6 12h12" />
-          </svg>
-          Go to Home Page
-        </Link>
       </div>
 
       {/* Recent Activity */}

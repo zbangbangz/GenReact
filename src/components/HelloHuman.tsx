@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
 
 function HelloHuman() {
   const [showBalance, setShowBalance] = useState(true)
@@ -100,19 +99,6 @@ function HelloHuman() {
             <p className="text-gray-600 text-sm">Send warm hello</p>
           </div>
         </div>
-      </div>
-
-      {/* Navigation Button */}
-      <div className="px-6 mt-6">
-        <Link 
-          to="/"
-          className="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 px-6 rounded-2xl shadow-sm transition-colors duration-200 flex items-center justify-center"
-        >
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Main Page
-        </Link>
       </div>
 
       {/* Recent Interactions */}
