@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function HelloHuman() {
   const [showBalance, setShowBalance] = useState(true)
@@ -24,8 +25,8 @@ function HelloHuman() {
     },
     {
       id: 3,
-      name: "User",
-      username: "@human",
+      name: "Mike Chen",
+      username: "@mikechan",
       amount: 0,
       date: "2025-06-19",
       description: "Thanks for the warm welcome!",
@@ -64,7 +65,7 @@ function HelloHuman() {
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {showBalance ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 616 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21" />
                 )}
@@ -102,22 +103,17 @@ function HelloHuman() {
         </div>
       </div>
 
-      {/* Welcome Message */}
+      {/* Navigation Button */}
       <div className="px-6 mt-6">
-        <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-3xl p-6 border border-purple-200">
-          <div className="text-center">
-            <h2 className="text-purple-800 text-2xl font-bold mb-2">🌟 Welcome Human! 🌟</h2>
-            <p className="text-purple-600 text-lg mb-4">
-              It's wonderful to meet you! I'm here to help and chat.
-            </p>
-            <div className="bg-white rounded-2xl p-4 shadow-sm">
-              <p className="text-gray-700 text-sm leading-relaxed">
-                "The future belongs to organizations that can bring together humans and AI in productive partnerships." 
-                <span className="text-purple-600 font-semibold">- Welcome to our collaboration!</span>
-              </p>
-            </div>
-          </div>
-        </div>
+        <Link 
+          to="/"
+          className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-3xl shadow-lg transition-colors duration-200 flex items-center justify-center"
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Main Page
+        </Link>
       </div>
 
       {/* Recent Interactions */}

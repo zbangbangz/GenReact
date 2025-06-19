@@ -6,10 +6,6 @@ interface TabNavigationProps {
 
 function TabNavigation({ children }: TabNavigationProps) {
   const location = useLocation()
-  
-  const handleExternalLink = () => {
-    window.open('https://paywisedemo1.vercel.app/', '_blank')
-  }
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -20,7 +16,7 @@ function TabNavigation({ children }: TabNavigationProps) {
             {/* Main Tab */}
             <Link
               to="/"
-              className={`flex-1 py-4 px-4 text-center font-semibold transition-colors duration-200 border-b-2 ${
+              className={`flex-1 py-4 px-6 text-center font-semibold transition-colors duration-200 border-b-2 ${
                 location.pathname === '/' || location.pathname === '/home'
                   ? 'border-purple-600 text-purple-600 bg-purple-50'
                   : 'border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50'
@@ -39,7 +35,7 @@ function TabNavigation({ children }: TabNavigationProps) {
             {/* Hello Human Tab */}
             <Link
               to="/hello-human"
-              className={`flex-1 py-4 px-4 text-center font-semibold transition-colors duration-200 border-b-2 ${
+              className={`flex-1 py-4 px-6 text-center font-semibold transition-colors duration-200 border-b-2 ${
                 location.pathname === '/hello-human'
                   ? 'border-purple-600 text-purple-600 bg-purple-50'
                   : 'border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50'
@@ -52,19 +48,6 @@ function TabNavigation({ children }: TabNavigationProps) {
                 <span>Hello</span>
               </div>
             </Link>
-
-            {/* External Demo Tab */}
-            <button
-              onClick={handleExternalLink}
-              className="flex-1 py-4 px-4 text-center font-semibold transition-colors duration-200 border-b-2 border-transparent text-gray-600 hover:text-purple-600 hover:bg-gray-50"
-            >
-              <div className="flex items-center justify-center space-x-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-                <span>Demo</span>
-              </div>
-            </button>
           </div>
         </div>
       </div>
