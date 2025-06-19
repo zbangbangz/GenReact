@@ -712,18 +712,18 @@ function Demo() {
     )
   }
 
-  // Home View - Main PayWise interface with matching main page styling
+  // Home View - Main PayWise interface with exact same styling as Main tab
   return (
     <div>
-      {/* Purple Header Card - Matching the main page exactly */}
+      {/* Purple Header Card - Matching Main tab exactly */}
       <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
-        {/* Subtle background elements - matching main page */}
+        {/* Subtle background elements - matching Main tab */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-16 right-8 w-32 h-32 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-12 left-6 w-24 h-24 bg-white rounded-full blur-3xl"></div>
         </div>
         
-        {/* Header - matching main page */}
+        {/* Header - matching Main tab */}
         <div className="flex justify-between items-center mb-10 relative z-10">
           <h1 className="text-white text-3xl font-bold tracking-tight">PayWise</h1>
           <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center backdrop-blur-sm">
@@ -731,7 +731,7 @@ function Demo() {
           </div>
         </div>
 
-        {/* Balance Section - matching main page */}
+        {/* Balance Section - matching Main tab */}
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-3">
             <span className="text-white text-lg font-medium opacity-90">Available Balance</span>
@@ -754,7 +754,7 @@ function Demo() {
         </div>
       </div>
 
-      {/* Action Cards - matching main page exactly */}
+      {/* Action Cards - Purple Theme matching Main tab exactly */}
       <div className="px-6 -mt-6 relative z-10">
         <div className="grid grid-cols-2 gap-4">
           {/* Send Money Card */}
@@ -787,7 +787,7 @@ function Demo() {
         </div>
       </div>
 
-      {/* Recent Activity - matching main page exactly */}
+      {/* Recent Activity - matching Main tab exactly */}
       <div className="px-6 mt-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-gray-900 text-2xl font-bold">Recent Activity</h2>
@@ -826,7 +826,7 @@ function Demo() {
                 
                 <div className="flex-1">
                   <div className="flex justify-between items-start">
-                    <div className="flex-1 text-left">
+                    <div className="flex-1">
                       <h3 className="text-gray-900 font-bold text-lg">{transaction.recipient}</h3>
                       <p className="text-gray-500 text-sm">{transaction.paytag}</p>
                       {transaction.memo && <p className="text-gray-600 text-sm mt-1">"{transaction.memo}"</p>}
