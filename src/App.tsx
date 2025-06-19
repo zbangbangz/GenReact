@@ -37,18 +37,19 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Main Card Container */}
-      <div className="bg-gradient-to-br from-purple-600 via-purple-500 to-purple-700 rounded-b-3xl px-6 pt-12 pb-8 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-purple-500 via-purple-600 to-purple-700 rounded-b-3xl px-6 pt-12 pb-8 relative overflow-hidden">
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-20">
           <div className="absolute top-10 right-10 w-32 h-32 bg-white rounded-full"></div>
           <div className="absolute bottom-10 left-10 w-24 h-24 bg-white rounded-full"></div>
+          <div className="absolute top-20 left-20 w-16 h-16 bg-white rounded-full"></div>
         </div>
         
         {/* Header */}
         <div className="flex justify-between items-center mb-8 relative z-10">
           <h1 className="text-white text-3xl font-bold">PayWise</h1>
-          <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-            <div className="w-6 h-6 bg-white rounded-full"></div>
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
           </div>
         </div>
 
@@ -91,7 +92,7 @@ function App() {
           <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
               <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
               </svg>
             </div>
             <h3 className="text-gray-900 text-lg font-semibold mb-1">History</h3>
@@ -112,7 +113,7 @@ function App() {
             <div key={transaction.id} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
               <div className="flex items-center">
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center mr-4 ${
-                  transaction.type === 'send' ? 'bg-red-100' : 'bg-green-100'
+                  transaction.type === 'send' ? 'bg-red-50' : 'bg-green-50'
                 }`}>
                   <svg className={`w-5 h-5 ${
                     transaction.type === 'send' ? 'text-red-500' : 'text-green-500'
