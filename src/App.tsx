@@ -36,9 +36,9 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div>
       {/* Main Card Container - Exact purple gradient from reference */}
-      <div className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-700 rounded-b-[32px] px-6 pt-12 pb-8 relative overflow-hidden">
+      <div className="bg-gradient-to-br from-purple-400 via-purple-500 to-purple-700 rounded-b-[32px] px-6 pt-8 pb-8 relative overflow-hidden">
         {/* Background decorative circles */}
         <div className="absolute inset-0 opacity-15">
           <div className="absolute top-16 right-8 w-24 h-24 bg-white rounded-full"></div>
