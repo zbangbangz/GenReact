@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './App.css'
 
-function App() {
+function Home() {
   const [showBalance, setShowBalance] = useState(true)
   
   const transactions = [
@@ -48,7 +47,7 @@ function App() {
         
         {/* Header */}
         <div className="flex justify-between items-center mb-10 relative z-10">
-          <h1 className="text-white text-3xl font-bold tracking-wide">PayWise</h1>
+          <h1 className="text-white text-3xl font-bold tracking-wide">PayWise Home</h1>
           <div className="w-12 h-12 bg-white bg-opacity-90 rounded-full flex items-center justify-center shadow-lg">
             <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
           </div>
@@ -105,13 +104,13 @@ function App() {
       {/* Navigation Button */}
       <div className="px-6 mt-6">
         <Link 
-          to="/home"
+          to="/"
           className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-3xl shadow-lg transition-colors duration-200 flex items-center justify-center"
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5-5 5M6 12h12" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
-          Go to Home Page
+          Back to Main Page
         </Link>
       </div>
 
@@ -172,4 +171,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
